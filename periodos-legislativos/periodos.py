@@ -16,7 +16,16 @@ ESFERAS = [MUNICIPAL, ESTADUAL, FEDERAL]
 class PeriodosRetriever:
 
     def get_periodos(self, esfera, periodicidade, data_inicial, data_final=None):
-        """Argumentos:
+        """O Radar Parlamentar precisa determinar um conjunto de períodos de análise para seu usuário.
+           O tamanho de cada período (periodicidade) é definido pelo usuário.
+           O período mais antigo é o período mais recente que contém a primeira votação da casa legislativa.
+           O período mais recente é aquele que contém a data corrente.
+           A determinação da data da primeira votação está abstraída nesse exemplo, já recebemos data_inicial.
+           O ponto central do problema é que um período de análise não pode atravessar as fronteiras de uma legislação,
+           pois não faz sentido rodar o algoritmo de clusterização com votações ocorridas em épocas em que as composições
+           da casa legislativa diferiam totalmente.
+           Exemplo: não podemos fazer uma única análise PCA juntando votos do senado ocorridos tanto no governo FHC quanto no governo Lula.
+           Argumentos:
                 esfera - string em ESFERAS, define possíveis datas de início de períodos.
                 periodicidade - string em PERIODICIDADES, define os tamanho dos períodos retornados.
                 data_inicial - datetime.date.
