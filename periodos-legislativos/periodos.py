@@ -25,6 +25,7 @@ class PeriodosRetriever:
            pois não faz sentido rodar o algoritmo de clusterização com votações ocorridas em épocas em que as composições
            da casa legislativa diferiam totalmente.
            Exemplo: não podemos fazer uma única análise PCA juntando votos do senado ocorridos tanto no governo FHC quanto no governo Lula.
+           O código original do Radar Parlamentar está aqui: https://github.com/radar-parlamentar/radar/blob/master/radar_parlamentar/modelagem/utils.py
            Argumentos:
                 esfera - string em ESFERAS, define possíveis datas de início de períodos.
                 periodicidade - string em PERIODICIDADES, define os tamanho dos períodos retornados.
